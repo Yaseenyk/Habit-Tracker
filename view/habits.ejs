@@ -1,0 +1,71 @@
+<head>
+  <title>Habits</title>
+  <style>
+    body{
+        font-family: sans-serif;
+        background-color: #E9DDD4;
+    }
+    .main-Container {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      /* border: 1px solid; */
+      height: 96vh;
+    }
+    .main-Container h1{
+        font-family: sans-serif;
+    }
+    .main-Container form input{
+        margin-right: -16px;
+    height: 6vh;
+    font-size: 20px;
+    padding-left: 10px;
+    border-radius: 15px;
+    border: 4px solid #F79489;
+    border-right: none;
+    }
+    .main-Container form button{
+    height: 6vh;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 4px solid #F79489;
+    background-color: #F9F1F0;
+    cursor: pointer;
+    color: #900020;
+    font-weight: 600;
+    font-family: sans-serif;
+    }
+    .main-Container ul{
+
+    }
+    .main-Container a{
+        text-decoration: none;
+    color: #900020;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    }
+    .main-Container li::marker{
+        text-decoration: none;
+    color: #900020;
+    font-family: sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    }
+  </style>
+</head>
+<div class="main-Container">
+  <h1>All Habits</h1>
+
+  <form action="/habits" method="POST">
+    <input type="text" name="name" placeholder="Enter new habit" required />
+    <button type="submit">Add Habit</button>
+  </form>
+  <ol>
+    <% habits.forEach(habit => { %>
+    <li><a href="/habit/<%= habit._id %>"><%= habit.name %></a></li>
+    <% }); %>
+  </ol>
+</div>
